@@ -1,0 +1,21 @@
+{
+  "name": "node-announcements-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot to show new announcements from announcements pages",
+  "main": "index.js",
+  "dependencies": {
+    "telegram-node-bot": "latest",
+    "request": "latest",
+    "cheerio": "latest",
+    "mysql":"latest"
+  },
+  "engines": {
+    "node": "6.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "jualopver",
+  "license": "ISC"
+}

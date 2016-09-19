@@ -1,0 +1,8 @@
+{
+    "telegramToken" : "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "mysqlhost"     : "localhost",
+    "mysqluser"     : "root",
+    "mysqlpassword" : "",
+    "mysqldatabase" : "announcements",
+    "mysqlport"     : "3306"
+}
