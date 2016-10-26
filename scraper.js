@@ -30,7 +30,7 @@ module.exports = {
                 var last_url;
                 switch (domain){
                     case 'www.milanuncios.com': 
-                        last_url = $('.aditem-detail-title').href;
+                        last_url = $('.aditem-detail-title').attr('href');
                         break;
 
                     case 'www.idealista.com': 
