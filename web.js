@@ -20,5 +20,5 @@ setInterval(function() {
 }, 300000); // every 5 minutes (300000)
 
 setInterval(function() {
-    http.get("https://bgg-telegram-bot.herokuapp.com");
+    http.get("http://bgg-telegram-bot.herokuapp.com");
 }, 300000); // every 5 minutes (300000)
