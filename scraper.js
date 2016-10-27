@@ -20,32 +20,38 @@ function extractDomain(url) {
 }
 
 module.exports = { 
-    scrape: function (url_to_track, callback) {
-        request(url_to_track, function(error, response, html){
-            var result = '';
+    scrape: function (urlToTrack, callback) {
+        var header = { "User-Agent": "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410."}
+        request({uri: urlToTrack , headers: header}, function(error, response, html){
+            var completeUrl = '';
             if(!error){
                 var $ = cheerio.load(html);
 
-                var domain = extractDomain(url_to_track);
-                var last_url;
+                var domain = extractDomain(urlToTrack);
+                var lastUrl;
                 switch (domain){
                     case 'www.milanuncios.com': 
-                        last_url = $('.aditem-detail-title').attr('href');
+                        lastUrl = $('.aditem-detail-title').attr('href');
+                        completeUrl = domain + lastUrl;
                         break;
 
                     case 'www.idealista.com': 
-                        last_url = $('article .item-link').attr('href');
+                        lastUrl = $('article .item-link').attr('href');
+                        completeUrl = domain + lastUrl;
                         break;
                     
+                    case 'www.fotocasa.es': 
+                        completeUrl = $('.expanded').attr('data-url')
+                        break;
+
                     default:
-                        last_url = undefined
+                        completeUrl = undefined
                         break;
                 }
-                result = domain + last_url;
             }else{
-                result = error;
+                completeUrl = error;
             }
-            callback(result);
+            callback(completeUrl);
         })
     }
 }
